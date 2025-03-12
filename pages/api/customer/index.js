@@ -1,5 +1,6 @@
 import Customer from "@/models/customer";
 import connectDB from "@/utils/connectDB";
+import { useRouter } from "next/router";
 
 export default async function handler(req, res) {
   try {
@@ -20,10 +21,20 @@ export default async function handler(req, res) {
       const customer = await Customer.create(data);
       res.status(201).json({ status: "successfully", data: customer });
     } catch (error) {
-      console.log(error);
       return res
         .status(500)
         .json({ status: "failed", message: "Erorr in storing to DB" });
+    }
+  } else if (req.method === "DELETE") {
+    try {
+      const { data } = req.body;
+      await Customer.findOneAndDelete({ _id: data });
+      res.status(200).json({ status: "success"});
+      console.log(data);
+    } catch (error) {
+      return res
+        .status(500)
+        .json({ status: "failed", message: "Erorr delete customer" });
     }
   }
 }

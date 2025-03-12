@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
     try {
       const customer = await Customer.create(data);
-      res.status(201).json({ message: "successfully", data: customer });
+      res.status(201).json({ status: "successfully", data: customer });
     } catch (error) {
       console.log(error);
       return res

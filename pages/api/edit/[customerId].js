@@ -16,6 +16,7 @@ export default async function handler(req, res) {
     const data = req.body.data;
     try {
       const customer = await Customer.findOne({ _id: id });
+      console.log(customer);
       customer.name = data.name;
       customer.lastName = data.lastName;
       customer.email = data.email;

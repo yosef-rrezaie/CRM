@@ -1,8 +1,11 @@
+import FormInput from "./FormInput";
+import ItemList from "./ItemList";
 
-export default function Form() {
+export default function Form({ form, setForm }) {
   return (
-    <div>
-        
-    </div>
-  )
+    <>
+      <FormInput />
+      <ItemList form={form} setForm={setForm} />
+    </>
+  );
 }

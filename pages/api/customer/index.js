@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 export default async function handler(req, res) {
   try {
-    connectDB();
+    await connectDB();
   } catch (error) {
     console.log(error);
     return res

@@ -5,7 +5,6 @@ export default function Form({ form, setForm }) {
   function changeHandler(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
-  console.log(form);
   return (
     <>
       <FormInput

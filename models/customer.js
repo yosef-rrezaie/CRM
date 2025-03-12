@@ -26,12 +26,12 @@ const customerSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    dafault: () => Date.now(),
+    default: () => Date.now(),
     immutable: true,
   },
   updatedAt: {
     type: Date,
-    dafault: () => Date.now(),
+    default: () => Date.now(),
   },
 });
 
